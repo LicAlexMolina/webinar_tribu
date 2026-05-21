@@ -136,6 +136,57 @@ nav {
   font-size: 0.8rem; color: var(--gray-500); text-align: center;
 }
 
+/* ── SECCIÓN ¿DE QUÉ HABLAREMOS? ── */
+.webinar-about {
+  text-align: left;
+  background: var(--gray-100);
+  border-radius: var(--radius);
+  padding: 36px 40px;
+  margin-bottom: 24px;
+  border-left: 4px solid var(--purple);
+}
+.section-label {
+  display: block; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--purple); margin-bottom: 10px;
+}
+.section-heading {
+  font-size: clamp(1.35rem, 3vw, 1.85rem); font-weight: 800;
+  color: var(--black); letter-spacing: -0.02em; line-height: 1.2;
+  margin-bottom: 18px;
+}
+.section-body p {
+  font-size: 0.97rem; color: var(--gray-700); line-height: 1.75;
+}
+.section-body p + p { margin-top: 14px; }
+
+/* ── SECCIÓN LO QUE TE LLEVAS ── */
+.webinar-takeaways {
+  text-align: left;
+  margin-bottom: 44px;
+}
+.takeaway-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 10px;
+  margin-top: 20px;
+}
+.takeaway-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--black);
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+}
+.takeaway-check {
+  width: 22px; height: 22px;
+  background: var(--purple);
+  border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+}
+.takeaway-check svg { display: block; }
+.takeaway-item span {
+  font-size: 0.93rem; color: #e5e7eb; line-height: 1.55;
+}
+
 /* ── FOOTER ── */
 footer {
   background: var(--black); color: var(--white);
@@ -182,6 +233,11 @@ footer {
   .btn-registro { width: 100%; justify-content: center; padding: 17px 24px; font-size: 1rem; }
   .cta-note { font-size: 0.78rem; }
 
+  .webinar-about { padding: 24px 20px; margin-bottom: 20px; }
+  .webinar-takeaways { margin-bottom: 32px; }
+  .takeaway-item { padding: 14px 16px; gap: 12px; }
+  .takeaway-item span { font-size: 0.88rem; }
+
   footer { padding: 32px 20px 24px; margin-top: 48px; }
   .footer-bottom { flex-direction: column; text-align: center; gap: 4px; }
 }
@@ -194,6 +250,8 @@ footer {
   .meta-pill { padding: 10px 14px; font-size: 0.82rem; }
   .bullets { padding: 16px 14px; }
   .bullets li { font-size: 0.88rem; }
+  .webinar-about { padding: 20px 16px; }
+  .takeaway-item { padding: 12px 14px; }
 }
 
 </style>
@@ -249,6 +307,40 @@ footer {
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
         <span id="formato"></span>
       </span>
+    </div>
+
+    <!-- ¿De qué hablaremos? -->
+    <div class="webinar-about">
+      <span class="section-label">Contenido del webinar</span>
+      <h2 class="section-heading">¿De qué hablaremos?</h2>
+      <div class="section-body">
+        <p>La mayoría de los profesionales ya usan IA para escribir correos, resumir documentos o generar ideas. Pero hay una brecha enorme entre <strong>usar IA</strong> y <strong>operar con IA</strong>.</p>
+        <p>En este webinar te mostraremos cómo las empresas están dando ese siguiente paso: conectar la inteligencia artificial a sus procesos reales — integrándola a su operación, sus reglas de negocio y sus datos — para decidir y actuar con más claridad.</p>
+      </div>
+    </div>
+
+    <!-- Lo que te llevas -->
+    <div class="webinar-takeaways">
+      <span class="section-label">Lo que te llevas</span>
+      <h2 class="section-heading">Lo que te llevas</h2>
+      <ul class="takeaway-list">
+        <li class="takeaway-item">
+          <span class="takeaway-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Por qué el "chat con IA" ya no es suficiente — y qué sigue después</span>
+        </li>
+        <li class="takeaway-item">
+          <span class="takeaway-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Cómo se ve una IA diseñada alrededor de un proceso comercial real</span>
+        </li>
+        <li class="takeaway-item">
+          <span class="takeaway-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Casos concretos: automatización de consultas, eliminación de captura manual y validación de expedientes en operaciones reales</span>
+        </li>
+        <li class="takeaway-item">
+          <span class="takeaway-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Por dónde empezar si quieres integrarlo a tu empresa</span>
+        </li>
+      </ul>
     </div>
 
     <!-- Bullets -->
