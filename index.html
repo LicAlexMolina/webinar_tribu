@@ -160,7 +160,7 @@ footer {
   nav { padding: 0 16px; height: 60px; }
   .nav-logo svg { height: 22px; }
   .page-max { padding: 0 20px; }
-  .hero { padding: 44px 0 56px; }
+  .hero { padding: 44px 0 48px; }
   .hero h1 { font-size: clamp(1.85rem, 8vw, 2.4rem); }
   .hero-sub { font-size: 0.95rem; margin-bottom: 28px; }
 
@@ -171,8 +171,14 @@ footer {
   .bullets { padding: 20px 18px; margin-bottom: 32px; }
   .bullets li { font-size: 0.92rem; padding: 10px 0; gap: 10px; }
 
-  .luma-iframe-box { border-radius: var(--radius-sm); }
-  .luma-embed-wrap iframe { height: 580px; }
+  /* Luma: full-bleed para que use el ancho total del viewport */
+  .luma-embed-wrap {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+  }
+  .luma-iframe-box { border-radius: 0; }
+  .luma-embed-wrap iframe { height: 700px; }
   .luma-note { font-size: 0.78rem; }
 
   footer { padding: 32px 20px 24px; margin-top: 48px; }
@@ -187,7 +193,14 @@ footer {
   .meta-pill { padding: 10px 14px; font-size: 0.82rem; }
   .bullets { padding: 16px 14px; }
   .bullets li { font-size: 0.88rem; }
-  .luma-embed-wrap iframe { height: 620px; }
+
+  /* Ajustar full-bleed al padding de este breakpoint */
+  .luma-embed-wrap {
+    margin-left: -16px;
+    margin-right: -16px;
+    width: calc(100% + 32px);
+  }
+  .luma-embed-wrap iframe { height: 750px; }
 }
 
 </style>
@@ -237,7 +250,6 @@ footer {
           id="luma-iframe"
           src="https://lu.ma/embed/event/evt-lQDmoszq107WLSY/simple"
           frameborder="0"
-          scrolling="no"
           allowfullscreen
           aria-hidden="false"
           tabindex="0"
@@ -324,7 +336,7 @@ footer {
     setTimeout(function () {
       if (resizedByMessage) return;
       var w = window.innerWidth;
-      var h = w <= 390 ? 620 : w <= 600 ? 580 : 520;
+      var h = w <= 390 ? 750 : w <= 600 ? 700 : 520;
       iframe.style.height = h + 'px';
     }, 600);
   });
