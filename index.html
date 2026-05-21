@@ -107,7 +107,7 @@ nav {
 
 /* ── LUMA EMBED INLINE ── */
 .luma-embed-wrap {
-  width: 100%; margin-bottom: 16px;
+  width: 100%; margin-bottom: 32px;
   display: flex; flex-direction: column; align-items: center; gap: 10px;
 }
 .luma-iframe-box {
@@ -224,6 +224,22 @@ footer {
     <h1 id="titulo"></h1>
     <p class="hero-sub" id="subtitulo"></p>
 
+    <!-- Widget Luma inline -->
+    <div class="luma-embed-wrap">
+      <div class="luma-iframe-box">
+        <iframe
+          id="luma-iframe"
+          src="https://lu.ma/embed/event/evt-lQDmoszq107WLSY/simple"
+          frameborder="0"
+          allowfullscreen
+          aria-hidden="false"
+          tabindex="0"
+          title="Registro al webinar"
+        ></iframe>
+      </div>
+      <p class="luma-note">Cupo limitado · Sin costo · Google Meet</p>
+    </div>
+
     <!-- Meta del evento -->
     <div class="event-meta">
       <span class="meta-pill">
@@ -242,22 +258,6 @@ footer {
 
     <!-- Bullets -->
     <ul class="bullets" id="bullets-list"></ul>
-
-    <!-- Widget Luma inline -->
-    <div class="luma-embed-wrap">
-      <div class="luma-iframe-box">
-        <iframe
-          id="luma-iframe"
-          src="https://lu.ma/embed/event/evt-lQDmoszq107WLSY/simple"
-          frameborder="0"
-          allowfullscreen
-          aria-hidden="false"
-          tabindex="0"
-          title="Registro al webinar"
-        ></iframe>
-      </div>
-      <p class="luma-note">Cupo limitado · Sin costo · Google Meet</p>
-    </div>
 
   </section>
 </div>
