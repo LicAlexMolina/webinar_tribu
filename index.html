@@ -105,34 +105,22 @@ nav {
 }
 .bullet-dot svg { display: block; }
 
-/* ── LUMA WIDGET ── */
-.luma-wrap {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 14px; margin-bottom: 16px;
+/* ── LUMA EMBED INLINE ── */
+.luma-embed-wrap {
+  width: 100%; margin-bottom: 16px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
 }
-
-/* Estilos propios para el botón de Luma (sin usar luma-checkout--button) */
-.btn-registro {
-  display: inline-flex; align-items: center; gap: 12px;
-  padding: 18px 48px;
-  background: var(--purple); color: var(--white);
-  font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 1.1rem;
-  border-radius: 50px; text-decoration: none;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 6px 28px rgba(151,71,255,0.38);
-  cursor: pointer; border: none;
-  min-height: 56px;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
+.luma-iframe-box {
+  width: 100%;
+  background: #2e2e2e;
+  border-radius: var(--radius);
+  overflow: hidden;
 }
-.btn-registro:hover {
-  background: var(--purple-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 36px rgba(151,71,255,0.52);
-}
-.btn-arrow {
-  width: 26px; height: 26px; background: var(--white); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+.luma-embed-wrap iframe {
+  width: 100%; height: 520px;
+  border: none;
+  display: block;
+  transition: height 0.2s ease;
 }
 
 .luma-note {
@@ -172,7 +160,7 @@ footer {
   nav { padding: 0 16px; height: 60px; }
   .nav-logo svg { height: 22px; }
   .page-max { padding: 0 20px; }
-  .hero { padding: 44px 0 108px; } /* espacio extra para sticky bar */
+  .hero { padding: 44px 0 56px; }
   .hero h1 { font-size: clamp(1.85rem, 8vw, 2.4rem); }
   .hero-sub { font-size: 0.95rem; margin-bottom: 28px; }
 
@@ -183,7 +171,8 @@ footer {
   .bullets { padding: 20px 18px; margin-bottom: 32px; }
   .bullets li { font-size: 0.92rem; padding: 10px 0; gap: 10px; }
 
-  .btn-registro { width: 100%; justify-content: center; padding: 17px 24px; font-size: 1rem; }
+  .luma-iframe-box { border-radius: var(--radius-sm); }
+  .luma-embed-wrap iframe { height: 580px; }
   .luma-note { font-size: 0.78rem; }
 
   footer { padding: 32px 20px 24px; margin-top: 48px; }
@@ -198,34 +187,9 @@ footer {
   .meta-pill { padding: 10px 14px; font-size: 0.82rem; }
   .bullets { padding: 16px 14px; }
   .bullets li { font-size: 0.88rem; }
+  .luma-embed-wrap iframe { height: 620px; }
 }
 
-/* ── STICKY BOTTOM BAR (solo mobile) ── */
-.sticky-cta {
-  display: none;
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-  background: var(--white);
-  border-top: 1px solid var(--card-border);
-  padding: 12px 20px;
-  padding-bottom: calc(12px + env(safe-area-inset-bottom));
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.10);
-  transform: translateY(100%);
-  transition: transform 0.28s ease;
-}
-.sticky-cta.visible { transform: translateY(0); }
-
-@media (max-width: 600px) {
-  .sticky-cta {
-    display: flex; flex-direction: column; align-items: center; gap: 5px;
-  }
-}
-
-.sticky-cta .btn-registro {
-  width: 100%; justify-content: center;
-  padding: 15px 24px; font-size: 0.97rem;
-  box-shadow: 0 4px 18px rgba(151,71,255,0.32);
-}
-.sticky-cta .luma-note { font-size: 0.73rem; }
 </style>
 </head>
 <body>
@@ -266,46 +230,24 @@ footer {
     <!-- Bullets -->
     <ul class="bullets" id="bullets-list"></ul>
 
-    <!-- Botón / Widget Luma -->
-    <div class="luma-wrap">
-      <a
-        href="https://luma.com/event/evt-lQDmoszq107WLSY"
-        class="btn-registro"
-        data-luma-action="checkout"
-        data-luma-event-id="evt-lQDmoszq107WLSY"
-        id="cta-btn"
-      >
-        <span id="cta-texto"></span>
-        <span class="btn-arrow">
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-            <path d="M2 7h10M7 2l5 5-5 5" stroke="#9747FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </a>
+    <!-- Widget Luma inline -->
+    <div class="luma-embed-wrap">
+      <div class="luma-iframe-box">
+        <iframe
+          id="luma-iframe"
+          src="https://lu.ma/embed/event/evt-lQDmoszq107WLSY/simple"
+          frameborder="0"
+          scrolling="no"
+          allowfullscreen
+          aria-hidden="false"
+          tabindex="0"
+          title="Registro al webinar"
+        ></iframe>
+      </div>
       <p class="luma-note">Cupo limitado · Sin costo · Google Meet</p>
     </div>
 
   </section>
-</div>
-
-<!-- ── STICKY CTA MÓVIL ── -->
-<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
-  <a
-    href="https://luma.com/event/evt-lQDmoszq107WLSY"
-    class="btn-registro"
-    data-luma-action="checkout"
-    data-luma-event-id="evt-lQDmoszq107WLSY"
-    id="sticky-btn"
-    tabindex="-1"
-  >
-    <span id="sticky-cta-texto"></span>
-    <span class="btn-arrow">
-      <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-        <path d="M2 7h10M7 2l5 5-5 5" stroke="#9747FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </span>
-  </a>
-  <p class="luma-note">Cupo limitado · Sin costo · Google Meet</p>
 </div>
 
 <!-- ── FOOTER ── -->
@@ -338,8 +280,6 @@ footer {
   document.getElementById('fecha').textContent      = c.fecha;
   document.getElementById('hora').textContent       = c.hora;
   document.getElementById('formato').textContent    = c.formato;
-  document.getElementById('cta-texto').textContent       = c.ctaTexto;
-  document.getElementById('sticky-cta-texto').textContent = c.ctaTexto;
   document.getElementById('footer-tagline').textContent = c.footerTagline;
   document.getElementById('footer-copy').textContent    = c.footerCopy;
   document.getElementById('footer-loc').textContent     = c.footerLoc;
@@ -357,39 +297,40 @@ footer {
     ul.appendChild(li);
   });
 
-  /* UTM passthrough */
-  const p = new URLSearchParams(window.location.search);
-  const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','campaign_id'];
-  const utmParams = {};
-  utmKeys.forEach(function (k) { if (p.get(k)) utmParams[k] = p.get(k); });
+})();
+</script>
+<script>
+(function () {
+  var iframe = document.getElementById('luma-iframe');
+  if (!iframe) return;
+  var resizedByMessage = false;
 
-  [document.getElementById('cta-btn'), document.getElementById('sticky-btn')].forEach(function (btn) {
-    if (!btn || !Object.keys(utmParams).length) return;
+  /* 1 — postMessage: si Luma envía su altura real, la usamos */
+  window.addEventListener('message', function (e) {
+    if (typeof e.origin !== 'string' || e.origin.indexOf('lu.ma') === -1) return;
     try {
-      const u = new URL(btn.href);
-      Object.entries(utmParams).forEach(function (e) { u.searchParams.set(e[0], e[1]); });
-      btn.href = u.toString();
-    } catch (e) {}
+      var d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+      var h = d && (d.height || (d.data && d.data.height) || (d.payload && d.payload.height));
+      if (h && h > 200) {
+        iframe.style.height = h + 'px';
+        resizedByMessage = true;
+      }
+    } catch (err) {}
   });
 
-  /* Sticky bar: aparece cuando el botón principal sale del viewport */
-  var stickyCta  = document.getElementById('sticky-cta');
-  var stickyBtn  = document.getElementById('sticky-btn');
-  var mainWrap   = document.querySelector('.luma-wrap');
-  if (stickyCta && mainWrap && 'IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      var isVisible = entries[0].isIntersecting;
-      stickyCta.classList.toggle('visible', !isVisible);
-      stickyCta.setAttribute('aria-hidden', isVisible ? 'true' : 'false');
-      if (stickyBtn) stickyBtn.setAttribute('tabindex', isVisible ? '-1' : '0');
-    }, { threshold: 0.2 });
-    observer.observe(mainWrap);
-  }
+  /* 2 — onload fallback: si Luma no mandó postMessage, ajustamos por viewport */
+  iframe.addEventListener('load', function () {
+    /* Espera 600 ms para darle chance al postMessage de llegar primero */
+    setTimeout(function () {
+      if (resizedByMessage) return;
+      var w = window.innerWidth;
+      var h = w <= 390 ? 620 : w <= 600 ? 580 : 520;
+      iframe.style.height = h + 'px';
+    }, 600);
+  });
 })();
 </script>
 
-<!-- Luma checkout script (una sola vez por página) -->
-<script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
 
 </body>
 </html>

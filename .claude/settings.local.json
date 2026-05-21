@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:help.lu.ma)",
+      "WebFetch(domain:luma-embed-examples.vercel.app)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:help.luma.com)"
+    ]
+  }
+}
