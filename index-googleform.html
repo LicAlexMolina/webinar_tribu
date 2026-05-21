@@ -86,24 +86,6 @@ nav {
 }
 .meta-pill svg { flex-shrink: 0; }
 
-/* ── BULLETS ── */
-.bullets {
-  list-style: none;
-  background: var(--gray-100); border-radius: var(--radius);
-  padding: 28px 32px; margin-bottom: 44px; text-align: left;
-}
-.bullets li {
-  display: flex; align-items: flex-start; gap: 12px;
-  font-size: 0.97rem; color: var(--gray-700); line-height: 1.55;
-  padding: 9px 0; border-bottom: 1px solid var(--card-border);
-}
-.bullets li:last-child { border-bottom: none; }
-.bullet-dot {
-  width: 22px; height: 22px; background: var(--purple);
-  border-radius: 50%; flex-shrink: 0; margin-top: 2px;
-  display: flex; align-items: center; justify-content: center;
-}
-.bullet-dot svg { display: block; }
 
 /* ── BOTÓN CTA ── */
 .form-cta-wrap {
@@ -136,56 +118,45 @@ nav {
   font-size: 0.8rem; color: var(--gray-500); text-align: center;
 }
 
-/* ── SECCIÓN ¿DE QUÉ HABLAREMOS? ── */
+/* ── SECCIONES DE CONTENIDO ── */
 .webinar-about {
   text-align: left;
   background: var(--gray-100);
   border-radius: var(--radius);
-  padding: 36px 40px;
+  padding: 28px 32px;
   margin-bottom: 24px;
-  border-left: 4px solid var(--purple);
 }
 .section-label {
-  display: block; font-size: 0.68rem; font-weight: 700;
+  display: block; font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.13em; text-transform: uppercase;
   color: var(--purple); margin-bottom: 10px;
 }
 .section-heading {
-  font-size: clamp(1.35rem, 3vw, 1.85rem); font-weight: 800;
+  font-size: clamp(1.25rem, 3vw, 1.5rem); font-weight: 800;
   color: var(--black); letter-spacing: -0.02em; line-height: 1.2;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
-.section-body p {
-  font-size: 0.97rem; color: var(--gray-700); line-height: 1.75;
-}
+.section-body p { font-size: 0.97rem; color: var(--gray-700); line-height: 1.75; }
 .section-body p + p { margin-top: 14px; }
 
-/* ── SECCIÓN LO QUE TE LLEVAS ── */
-.webinar-takeaways {
-  text-align: left;
-  margin-bottom: 44px;
-}
+.webinar-takeaways { text-align: left; margin-bottom: 44px; }
 .takeaway-list {
   list-style: none;
-  display: flex; flex-direction: column; gap: 10px;
-  margin-top: 20px;
+  background: var(--gray-100); border-radius: var(--radius);
+  padding: 28px 32px; margin-top: 20px;
 }
 .takeaway-item {
-  display: flex; align-items: flex-start; gap: 14px;
-  background: var(--black);
-  border-radius: var(--radius-sm);
-  padding: 18px 22px;
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 0.97rem; color: var(--gray-700); line-height: 1.55;
+  padding: 9px 0; border-bottom: 1px solid var(--card-border);
 }
+.takeaway-item:last-child { border-bottom: none; }
 .takeaway-check {
-  width: 22px; height: 22px;
-  background: var(--purple);
-  border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+  width: 22px; height: 22px; background: var(--purple);
+  border-radius: 50%; flex-shrink: 0; margin-top: 2px;
   display: flex; align-items: center; justify-content: center;
 }
 .takeaway-check svg { display: block; }
-.takeaway-item span {
-  font-size: 0.93rem; color: #e5e7eb; line-height: 1.55;
-}
 
 /* ── FOOTER ── */
 footer {
@@ -227,16 +198,13 @@ footer {
   .event-meta { flex-direction: column; align-items: stretch; gap: 8px; margin-bottom: 32px; }
   .meta-pill { justify-content: flex-start; padding: 12px 16px; font-size: 0.86rem; border-radius: 12px; }
 
-  .bullets { padding: 20px 18px; margin-bottom: 32px; }
-  .bullets li { font-size: 0.92rem; padding: 10px 0; gap: 10px; }
-
   .btn-registro { width: 100%; justify-content: center; padding: 17px 24px; font-size: 1rem; }
   .cta-note { font-size: 0.78rem; }
 
-  .webinar-about { padding: 24px 20px; margin-bottom: 20px; }
+  .webinar-about { padding: 20px 18px; margin-bottom: 20px; }
+  .takeaway-list { padding: 20px 18px; }
+  .takeaway-item { font-size: 0.92rem; padding: 10px 0; gap: 10px; }
   .webinar-takeaways { margin-bottom: 32px; }
-  .takeaway-item { padding: 14px 16px; gap: 12px; }
-  .takeaway-item span { font-size: 0.88rem; }
 
   footer { padding: 32px 20px 24px; margin-top: 48px; }
   .footer-bottom { flex-direction: column; text-align: center; gap: 4px; }
@@ -248,10 +216,9 @@ footer {
   .hero h1 { font-size: clamp(1.7rem, 9vw, 2rem); }
   .label-tag { font-size: 0.65rem; }
   .meta-pill { padding: 10px 14px; font-size: 0.82rem; }
-  .bullets { padding: 16px 14px; }
-  .bullets li { font-size: 0.88rem; }
-  .webinar-about { padding: 20px 16px; }
-  .takeaway-item { padding: 12px 14px; }
+  .webinar-about { padding: 16px 14px; }
+  .takeaway-list { padding: 16px 14px; }
+  .takeaway-item { font-size: 0.88rem; }
 }
 
 </style>
@@ -343,8 +310,6 @@ footer {
       </ul>
     </div>
 
-    <!-- Bullets -->
-    <ul class="bullets" id="bullets-list"></ul>
 
   </section>
 </div>
@@ -383,18 +348,7 @@ footer {
   document.getElementById('footer-copy').textContent    = c.footerCopy;
   document.getElementById('footer-loc').textContent     = c.footerLoc;
 
-  const ul = document.getElementById('bullets-list');
-  c.bullets.forEach(function (text) {
-    const li = document.createElement('li');
-    li.innerHTML =
-      '<span class="bullet-dot">' +
-        '<svg width="9" height="7" viewBox="0 0 9 7" fill="none">' +
-          '<path d="M1 3.5l2.5 2.5L8 1" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>' +
-        '</svg>' +
-      '</span>' +
-      '<span>' + text + '</span>';
-    ul.appendChild(li);
-  });
+
 })();
 </script>
 
